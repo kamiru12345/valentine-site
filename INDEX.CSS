@@ -1,0 +1,311 @@
+/* -------------------------- */
+/* RESET & BASE STYLES */
+/* -------------------------- */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* -------------------------- */
+/* BACKGROUND */
+/* -------------------------- */
+body {
+  background-image: url("IMAGES/wp-2.jpeg"); /* rename file to avoid spaces */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* -------------------------- */
+/* CONTAINER */
+/* -------------------------- */
+.container {
+  width: 100%;
+  max-width: none;          /* REMOVE CARD FEEL */
+  padding: 25px 60px 25px 40px;
+  margin: 0;                /* FULL WIDTH */
+  background: rgba(0,0,0,0.35);
+  border-radius: 0;         /* FLAT EDGE = LEFT ANCHORED */
+}
+
+/* -------------------------- */
+/* HEADINGS & BUTTONS */
+/* -------------------------- */
+h1 {
+  font-size: 3rem;
+  color: #ff4d6d;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+button {
+  background: #ff4d6d;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff1e4d;
+}
+
+/* -------------------------- */
+/* SURPRISE CONTENT */
+/* -------------------------- */
+#content {
+  display: none;
+  margin-top: 30px;
+}
+
+/* -------------------------- */
+/* FLEX LAYOUT: TEXT LEFT, MEDIA RIGHT */
+/* -------------------------- */
+.layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.text-side h1,
+.text-side .subtitle {
+  margin-left: 0;
+  padding-left: 0;
+}
+.media-side {
+  flex: 1;
+  text-align: center;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+.text-side {
+  width: 55%;
+  padding: 20px;
+  display: block;        /* ensure vertical stacking */
+}
+.message-box {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  min-height: 160px;
+  margin-bottom: 10px;   /* spacing before Valentine box */
+}
+.valentine-box {
+  display: none;
+  margin-top: 15px;      /* spacing after message */
+  background: rgba(0,0,0,0.35);
+  padding: 15px 25px;
+  border-radius: 15px;
+  color: white;
+  text-align: left;      /* left-aligned under message */
+  max-width: 400px;
+}
+
+}
+
+/* -------------------------- */
+/* VIDEOS (STACKED VERTICAL) */
+/* -------------------------- */
+.videos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;      /* SAME AS IMAGE GAP */
+  margin-bottom: 20px;
+}
+.main-video {
+  width: 100%;
+  height: 220px;              /* SAME HEIGHT AS IMAGES */
+  object-fit: cover;
+  border-radius: 15px;        /* MATCH IMAGE RADIUS */
+  box-shadow: 0 0 20px rgba(255,77,109,0.35);
+}
+/* -------------------------- */
+/* IMAGES GALLERY (2 PER ROW) */
+/* -------------------------- */
+.two-per-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.two-per-row img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255,77,109,0.35);
+}
+
+/* MOBILE: 1 IMAGE PER ROW */
+@media (max-width: 600px) {
+  .two-per-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -------------------------- */
+/* MESSAGE BOX */
+/* -------------------------- */
+.message-box {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  min-height: 160px;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* -------------------------- */
+/* FLOATING HEARTS */
+/* -------------------------- */
+.hearts {
+  position: fixed;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1; /* behind container */
+}
+
+.hearts span {
+  position: absolute;
+  bottom: 0;
+  font-size: 24px;
+  animation: floatUp 8s linear infinite;
+  opacity: 0;
+}
+
+/* Random positions & delays for hearts */
+.hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.hearts span:nth-child(2) { left: 25%; animation-delay: 2s; }
+.hearts span:nth-child(3) { left: 40%; animation-delay: 4s; }
+.hearts span:nth-child(4) { left: 55%; animation-delay: 1s; }
+.hearts span:nth-child(5) { left: 70%; animation-delay: 3s; }
+.hearts span:nth-child(6) { left: 85%; animation-delay: 5s; }
+.hearts span:nth-child(7) { left: 95%; animation-delay: 6s; }
+
+/* Heart float animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.4);
+    opacity: 0;
+  }
+}
+#typedText {
+  color:purple; /* Your typing text will be purple */
+}
+/* ------------------------------ */
+/* MAIN LAYOUT */
+/* ------------------------------ */
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* TEXT SIDE */
+.text-side {
+  width: 55%;
+  padding: 20px;
+  max-height: 80vh;         /* limit height for scrolling */
+  overflow-y: auto;         /* enable vertical scroll */
+  scroll-behavior: smooth;  /* smooth scrolling */
+}
+
+
+/* MEDIA SIDE (VIDEOS + IMAGES) */
+.media-side {
+  width: 45%;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Make media scroll internally if needed */
+.media-side .videos,
+.media-side .gallery {
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+/* ------------------------------ */
+/* MOBILE FIX (VERY IMPORTANT) */
+/* ------------------------------ */
+@media (max-width: 768px) {
+
+  .layout {
+    flex-direction: row; /* KEEP SIDE BY SIDE */
+  }
+
+  /* MEDIA STAYS FIXED */
+  .media-side {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 45%;
+    height: 100vh;
+    background: #000;
+    padding: 5px;
+  }
+
+  /* TEXT SCROLLS */
+  .text-side {
+    width: 55%;
+    margin-right: 45%; /* MAKE SPACE FOR MEDIA */
+    padding: 15px;
+  }
+}
+/* -------------------------- */
+/* MEDIA HEADER */
+/* -------------------------- */
+.media-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.media-header h2 {
+  font-size: 1.8rem;
+  color: #ff4d6d;
+  margin-bottom: 5px;
+}
+
+.media-header p {
+  font-size: 1rem;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
